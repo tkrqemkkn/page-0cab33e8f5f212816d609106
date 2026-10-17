@@ -1,0 +1,307 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>新界 - 结构化网络资源分发方案与跨平台接入规范</title><meta name="description" content="新界面向多终端环境提供清晰的数据分流配置方案与网络接入规范。依据不同数据吞吐需求与在线终端规模，梳理透明的套餐梯度与标准使用指引。"><meta name="keywords" content="新界, 网络路由, 订阅配置, 流量方案, 终端接入, 分流规范"><meta name="robots" content="index,follow"><link rel="canonical" href="https://p-07a92ed03f.qishijob.cn/"><meta property="og:type" content="website"><meta property="og:title" content="新界 - 结构化网络资源分发方案与跨平台接入规范"><meta property="og:description" content="新界面向多终端环境提供清晰的数据分流配置方案与网络接入规范。依据不同数据吞吐需求与在线终端规模，梳理透明的套餐梯度与标准使用指引。"><meta property="og:url" content="https://p-07a92ed03f.qishijob.cn/"><meta property="og:site_name" content="新界"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "url": "https://p-07a92ed03f.qishijob.cn/", "name": "新界 - 结构化网络资源分发方案与跨平台接入规范", "description": "新界面向多终端环境提供清晰的数据分流配置方案与网络接入规范。依据不同数据吞吐需求与在线终端规模，梳理透明的套餐梯度与标准使用指引。", "inLanguage": "zh-CN"}</script><meta name="publisher-task" content="0cab33e8f5f212816d609106:247995b20d2c34dadec15abb47037a131246d0d27a0ec57383aad358e7d0ee7d:2139b06e33e9a6397475"></head><body id="top"><style>
+:root {--slate-50: #f8fafc;--slate-100: #f1f5f9;--slate-200: #e2e8f0;--slate-300: #cbd5e1;--slate-500: #64748b;--slate-700: #334155;--slate-800: #1e293b;--slate-900: #0f172a;--cyan-50: #ecfeff;--cyan-100: #cffafe;--cyan-500: #06b6d4;--cyan-600: #0891b2;--cyan-700: #0e7490;--cyan-900: #164e63;--font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;--font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace}
+*, *::before, *::after {box-sizing: border-box;margin: 0;padding: 0}
+body {font-family: var(--font-sans);background-color: var(--slate-50);color: var(--slate-800);line-height: 1.65;-webkit-font-smoothing: antialiased}
+a {color: inherit;text-decoration: none}
+.site-header {border-bottom: 1px solid var(--slate-200);background-color: #ffffff}
+.breadcrumbs-bar {max-width: 1240px;margin: 0 auto;padding: 12px 24px;font-size: 0.82rem;color: var(--slate-500);display: flex;align-items: center;gap: 8px;font-family: var(--font-mono)}
+.breadcrumbs-bar span.divider {color: var(--slate-300)}
+.breadcrumbs-bar strong {color: var(--cyan-700);font-weight: 600}
+.toc-bar {max-width: 1240px;margin: 0 auto;padding: 0 24px 14px;display: flex;flex-wrap: wrap;gap: 20px;font-size: 0.88rem}
+.toc-bar a {color: var(--slate-700);padding-bottom: 4px;border-bottom: 2px solid transparent;transition: all 0.2s ease}
+.toc-bar a:hover {color: var(--cyan-600);border-bottom-color: var(--cyan-600)}
+.page-container {max-width: 1240px;margin: 0 auto;padding: 0 24px}
+.hero-layout {display: grid;grid-template-columns: 360px 1fr;min-height: 68vh;gap: 64px;padding: 64px 0 80px;border-bottom: 1px solid var(--slate-200);align-items: start}
+.hero-narrow-col {display: flex;flex-direction: column;gap: 24px}
+.hero-tag {display: inline-block;font-size: 0.75rem;font-family: var(--font-mono);letter-spacing: 0.08em;text-transform: uppercase;color: var(--cyan-700);background-color: var(--cyan-50);border: 1px solid var(--cyan-100);padding: 4px 10px;border-radius: 2px;width: fit-content}
+.hero-title {font-size: 2.5rem;line-height: 1.15;font-weight: 800;letter-spacing: -0.02em;color: var(--slate-900)}
+.hero-prompt-qa {display: flex;flex-direction: column;gap: 12px;margin-top: 8px}
+.hero-prompt-q {font-size: 0.95rem;font-weight: 600;color: var(--cyan-700)}
+.hero-prompt-a {font-size: 0.92rem;color: var(--slate-700);line-height: 1.6}
+.hero-spec-matrix {margin-top: 16px;padding-top: 20px;border-top: 1px solid var(--slate-200);display: grid;grid-template-columns: 1fr;gap: 12px;font-size: 0.85rem}
+.spec-item {display: flex;justify-content: space-between}
+.spec-label {color: var(--slate-500)}
+.spec-val {font-family: var(--font-mono);color: var(--slate-800);font-weight: 600}
+.hero-empty-space {height: 100%;min-height: 400px;border-left: 1px dashed var(--slate-300);padding-left: 48px;display: flex;flex-direction: column;justify-content: space-between;position: relative}
+.space-canvas-indicator {font-family: var(--font-mono);font-size: 0.75rem;color: var(--slate-300);letter-spacing: 0.1em}
+.space-statement-box {max-width: 440px;margin-top: auto;margin-bottom: 24px}
+.space-statement-q {font-size: 1.15rem;font-weight: 700;color: var(--slate-900);margin-bottom: 12px;line-height: 1.4}
+.space-statement-text {font-size: 0.92rem;color: var(--slate-500);line-height: 1.7}
+.section-block {padding: 80px 0;border-bottom: 1px solid var(--slate-200)}
+.section-intro-guide {margin-bottom: 40px}
+.guide-question {font-size: 0.88rem;font-family: var(--font-mono);color: var(--cyan-700);text-transform: uppercase;letter-spacing: 0.05em;margin-bottom: 8px}
+.section-heading {font-size: 1.75rem;font-weight: 700;color: var(--slate-900);letter-spacing: -0.01em}
+.cards-grid {display: grid;grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));gap: 28px}
+.number-base-card {position: relative;background: #ffffff;border: 1px solid var(--slate-200);padding: 36px 30px;overflow: hidden;display: flex;flex-direction: column;justify-content: space-between;min-height: 250px}
+.card-content-wrap {position: relative;z-index: 2}
+.card-query-title {font-size: 1.1rem;font-weight: 700;color: var(--slate-900);margin-bottom: 12px}
+.card-answer-desc {font-size: 0.9rem;color: var(--slate-700);line-height: 1.65}
+.card-bg-number {position: absolute;right: 16px;bottom: -24px;font-size: 6.5rem;font-weight: 900;line-height: 1;font-family: var(--font-mono);color: rgba(14, 116, 144, 0.08);user-select: none;pointer-events: none;z-index: 1}
+.plans-vertical-list {display: flex;flex-direction: column;gap: 20px}
+.plan-row-item {background: #ffffff;border: 1px solid var(--slate-200);padding: 28px 32px;display: grid;grid-template-columns: 240px 180px 1fr 180px;align-items: center;gap: 28px;transition: border-color 0.2s ease, box-shadow 0.2s ease}
+.plan-row-item.highlighted {border-color: var(--cyan-500);background-color: #fafefe;position: relative}
+.plan-row-item.highlighted::before {content: "推荐配置";position: absolute;top: -10px;left: 32px;background: var(--cyan-700);color: #ffffff;font-size: 0.72rem;padding: 2px 8px;font-weight: 600;letter-spacing: 0.05em}
+.plan-title-col h3 {font-size: 1.3rem;font-weight: 700;color: var(--slate-900);margin-bottom: 4px}
+.plan-sub-desc {font-size: 0.8rem;color: var(--slate-500)}
+.plan-pricing-col {display: flex;flex-direction: column}
+.plan-main-price {font-size: 1.5rem;font-weight: 700;font-family: var(--font-mono);color: var(--cyan-700)}
+.plan-term-sub {font-size: 0.8rem;color: var(--slate-500)}
+.plan-features-col {display: flex;flex-wrap: wrap;gap: 8px 16px}
+.feature-badge-item {display: inline-flex;align-items: center;gap: 6px;font-size: 0.85rem;color: var(--slate-700);background: var(--slate-100);padding: 4px 10px;border-radius: 2px}
+.feature-bullet {width: 6px;height: 6px;background-color: var(--cyan-600);display: inline-block}
+.plan-action-col {text-align: right}
+.plan-btn {display: inline-block;padding: 10px 20px;font-size: 0.88rem;font-weight: 600;border: 1px solid var(--slate-700);color: var(--slate-900);text-align: center;transition: all 0.2s ease}
+.plan-btn.primary {background: var(--cyan-700);color: #ffffff;border-color: var(--cyan-700)}
+.plan-btn:hover {background: var(--slate-900);color: #ffffff;border-color: var(--slate-900)}
+.setup-guide-box {background: #ffffff;border: 1px solid var(--slate-200);padding: 36px 32px}
+.setup-step-grid {display: grid;grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));gap: 24px;margin-top: 24px}
+.step-cell {border-left: 2px solid var(--cyan-600);padding-left: 16px}
+.step-index {font-family: var(--font-mono);font-size: 0.78rem;color: var(--cyan-700);font-weight: 700;margin-bottom: 6px}
+.step-title {font-size: 0.98rem;font-weight: 700;color: var(--slate-900);margin-bottom: 8px}
+.step-content {font-size: 0.85rem;color: var(--slate-600);line-height: 1.6}
+.faq-numbered-list {list-style: none;display: flex;flex-direction: column;gap: 24px}
+.faq-list-item {display: grid;grid-template-columns: 80px 1fr;background: #ffffff;border: 1px solid var(--slate-200);padding: 28px 32px;gap: 24px;align-items: start}
+.faq-index-sign {font-family: var(--font-mono);font-size: 1.5rem;font-weight: 800;color: var(--cyan-700);border-bottom: 2px solid var(--cyan-100);padding-bottom: 4px;width: fit-content}
+.faq-qa-body {display: flex;flex-direction: column;gap: 10px}
+.faq-question-text {font-size: 1.05rem;font-weight: 700;color: var(--slate-900)}
+.faq-answer-text {font-size: 0.9rem;color: var(--slate-700);line-height: 1.7}
+.site-footer {padding: 48px 0;background: #ffffff;border-top: 1px solid var(--slate-200);font-size: 0.85rem;color: var(--slate-500)}
+.footer-inner {display: flex;justify-content: space-between;align-items: center;flex-wrap: wrap;gap: 16px}
+.footer-note {font-family: var(--font-mono);font-size: 0.78rem}
+@media (max-width: 960px) {
+  .hero-layout {grid-template-columns: 1fr;gap: 40px;min-height: auto}
+  .hero-empty-space {border-left: none;border-top: 1px dashed var(--slate-300);padding-left: 0;padding-top: 32px;min-height: auto}
+  .plan-row-item {grid-template-columns: 1fr;gap: 16px}
+  .plan-action-col {text-align: left}
+  .faq-list-item {grid-template-columns: 1fr;gap: 12px}
+}
+</style><header class="site-header">
+  <div class="breadcrumbs-bar">
+    <a href="#">首页</a>
+    <span class="divider">/</span>
+    <a href="#">网络架构与分发矩阵</a>
+    <span class="divider">/</span>
+    <strong>新界节点与订阅指引</strong>
+  </div>
+  <nav class="toc-bar" aria-label="页面核心目录">
+    <a href="#overview">01. 体系概述</a>
+    <a href="#principles">02. 架构设计原则</a>
+    <a href="#plans">03. 资源规格方案</a>
+    <a href="#client-guide">04. 客户端配置</a>
+    <a href="#faq">05. 常见问题解答</a>
+  </nav>
+</header>
+
+<main class="page-container">
+  <section class="hero-layout" id="overview">
+    <div class="hero-narrow-col">
+      <span class="hero-tag">Routing &amp; Infrastructure</span>
+      <h1 class="hero-title">新界</h1>
+      <div class="hero-prompt-qa">
+        <p class="hero-prompt-q">如何理解新界的核心任务？</p>
+        <p class="hero-prompt-a">当多终端环境面临杂乱的跨域访问配置时，新界通过结构化的路由规则与按需划分的节点资源池，为个人与组织提供规范、低干预的数据中继方案。</p>
+      </div>
+      <div class="hero-spec-matrix">
+        <div class="spec-item">
+          <span class="spec-label">当前运行调度</span>
+          <span class="spec-val">规则分流就绪</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">支持协议规范</span>
+          <span class="spec-val">跨平台通用标准</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">资源分配模式</span>
+          <span class="spec-val">按席位与配额隔离</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-empty-space">
+      <div class="space-canvas-indicator">SYS-REF // 09046-SCALE-INDEX</div>
+      <div class="space-statement-box">
+        <p class="space-statement-q">为什么坚持以留白和规范构建传输拓扑？</p>
+        <p class="space-statement-text">网络资源配置的核心价值在于降低不确定性。我们剥除多余的包装辞藻，呈现客观的规格、清晰的设备限制与直截了当的参数设定，使用户对每单位流量的去向均有预估。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block" id="principles">
+    <div class="section-intro-guide">
+      <div class="guide-question">Question / 01</div>
+      <h2 class="section-heading">搭建环境前，应依循哪些网络调度逻辑？</h2>
+    </div>
+    <div class="cards-grid">
+      <article class="number-base-card">
+        <div class="card-content-wrap">
+          <h3 class="card-query-title">分流规则如何实施？</h3>
+          <p class="card-answer-desc">系统基于目标域名与 IP 归属地触发判定。内部通讯与大陆主流站点直接本地回环，跨域服务则经由新界中继链路解析，避免全量全局代理带来的带宽消耗。</p>
+        </div>
+        <div class="card-bg-number">01</div>
+      </article>
+
+      <article class="number-base-card">
+        <div class="card-content-wrap">
+          <h3 class="card-query-title">节点资源池如何分层？</h3>
+          <p class="card-answer-desc">依据不同传输负载，通用接入层处理常规轻量网页请求，原生与专线节点则专供高频流媒体及低延迟交互任务，彼此逻辑隔离，避免信道挤占。</p>
+        </div>
+        <div class="card-bg-number">02</div>
+      </article>
+
+      <article class="number-base-card">
+        <div class="card-content-wrap">
+          <h3 class="card-query-title">设备上限如何管控？</h3>
+          <p class="card-answer-desc">每个订阅对应固定的活跃并发会话数。当在线终端超出配额时，系统依据接入时间戳维持白名单列表，保障在网设备的会话连续性。</p>
+        </div>
+        <div class="card-bg-number">03</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-block" id="plans">
+    <div class="section-intro-guide">
+      <div class="guide-question">Question / 02</div>
+      <h2 class="section-heading">如何选择符合自身吞吐体量的方案？</h2>
+    </div>
+    <div class="plans-vertical-list">
+      <article class="plan-row-item">
+        <div class="plan-title-col">
+          <h3>基础版</h3>
+          <p class="plan-sub-desc">适用于个人单机或轻度查询场景</p>
+        </div>
+        <div class="plan-pricing-col">
+          <span class="plan-main-price">¥15<small>/月</small></span>
+          <span class="plan-term-sub">按年付仅需 ¥150/年</span>
+        </div>
+        <div class="plan-features-col">
+          <span class="feature-badge-item"><span class="feature-bullet"></span>每月 100GB 流量配额</span>
+          <span class="feature-badge-item"><span class="feature-bullet"></span>支持 3 台设备同时在线</span>
+          <span class="feature-badge-item"><span class="feature-bullet"></span>基础流媒体访问</span>
+          <span class="feature-badge-item"><span class="feature-bullet"></span>普通线路节点池</span>
+        </div>
+        <div class="plan-action-col">
+          <a href="#" class="plan-btn">选定基础方案</a>
+        </div>
+      </article>
+
+      <article class="plan-row-item highlighted">
+        <div class="plan-title-col">
+          <h3>旗舰版</h3>
+          <p class="plan-sub-desc">兼顾日常多媒体消费与低延迟传输</p>
+        </div>
+        <div class="plan-pricing-col">
+          <span class="plan-main-price">¥35<small>/月</small></span>
+          <span class="plan-term-sub">按年付仅需 ¥350/年</span>
+        </div>
+        <div class="plan-features-col">
+          <span class="feature-badge-item"><span class="feature-bullet"></span>每月 300GB 流量配额</span>
+          <span class="feature-badge-item"><span class="feature-bullet"></span>支持 5 台设备同时在线</span>
+          <span class="feature-badge-item"><span class="feature-bullet"></span>全节点原生流媒体解锁</span>
+          <span class="feature-badge-item"><span class="feature-bullet"></span>IPLC 专线游戏加速优化</span>
+          <span class="feature-badge-item"><span class="feature-bullet"></span>7x24 优先工单支持</span>
+        </div>
+        <div class="plan-action-col">
+          <a href="#" class="plan-btn primary">选定旗舰方案</a>
+        </div>
+      </article>
+
+      <article class="plan-row-item">
+        <div class="plan-title-col">
+          <h3>团队版</h3>
+          <p class="plan-sub-desc">满足小型组织多席位协作与定制路由需求</p>
+        </div>
+        <div class="plan-pricing-col">
+          <span class="plan-main-price">¥85<small>/月</small></span>
+          <span class="plan-term-sub">按年付仅需 ¥850/年</span>
+        </div>
+        <div class="plan-features-col">
+          <span class="feature-badge-item"><span class="feature-bullet"></span>每月 1000GB 流量配额</span>
+          <span class="feature-badge-item"><span class="feature-bullet"></span>支持 20 台设备同时在线</span>
+          <span class="feature-badge-item"><span class="feature-bullet"></span>VIP 专属高带宽节点</span>
+          <span class="feature-badge-item"><span class="feature-bullet"></span>支持企业定制路由</span>
+          <span class="feature-badge-item"><span class="feature-bullet"></span>专属客户经理服务</span>
+        </div>
+        <div class="plan-action-col">
+          <a href="#" class="plan-btn">选定团队方案</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-block" id="client-guide">
+    <div class="section-intro-guide">
+      <div class="guide-question">Question / 03</div>
+      <h2 class="section-heading">如何将新界订阅接入不同操作系统？</h2>
+    </div>
+    <div class="setup-guide-box">
+      <p>新界采用业界通用订阅协议标准。我们不提供绑定私有代码的闭源打包软件，用户可通过受信任的通用核心工具直接完成分发，保障配置自主性与系统清洁度。</p>
+      <div class="setup-step-grid">
+        <div class="step-cell">
+          <div class="step-index">STEP 01</div>
+          <div class="step-title">获取订阅凭证</div>
+          <p class="step-content">确认方案生效后，在后台生成专属的基础订阅 URL 字符串，支持 Clash、Sing-Box 或通用内核格式。</p>
+        </div>
+        <div class="step-cell">
+          <div class="step-index">STEP 02</div>
+          <div class="step-title">导入通用终端</div>
+          <p class="step-content">在 Windows、macOS、iOS 或 Android 平台的通用代理管理工具中添加远程配置链接并触发拉取。</p>
+        </div>
+        <div class="step-cell">
+          <div class="step-index">STEP 03</div>
+          <div class="step-title">设定分流模式</div>
+          <p class="step-content">推荐勾选“规则分流（Rule / PAC）”，确保本地回环与跨域访问分别匹配各自路由表，完成初始化配置。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block" id="faq">
+    <div class="section-intro-guide">
+      <div class="guide-question">Question / 04</div>
+      <h2 class="section-heading">常见技术与账单问题解答</h2>
+    </div>
+    <ol class="faq-numbered-list">
+      <li class="faq-list-item">
+        <div class="faq-index-sign">01</div>
+        <div class="faq-qa-body">
+          <h3 class="faq-question-text">新界的每月流量配额是如何结算与重置的？</h3>
+          <p class="faq-answer-text">流量计算周期严格按照订单支付成功当天的账单周期（Billing Cycle）循环。例如，若在某月 15 日订阅，次月 15 日将自动重置当月额度。未消耗完的配额不结转至下一周期。</p>
+        </div>
+      </li>
+
+      <li class="faq-list-item">
+        <div class="faq-index-sign">02</div>
+        <div class="faq-qa-body">
+          <h3 class="faq-question-text">同时在线设备数量是如何判定的？</h3>
+          <p class="faq-answer-text">系统依据接入节点的活动 IP 与保持长连接的终端指纹进行综合会话统计。同一本地局域网内经由软路由等网关分流的设备，在网关出口处视作单一连接源。</p>
+        </div>
+      </li>
+
+      <li class="faq-list-item">
+        <div class="faq-index-sign">03</div>
+        <div class="faq-qa-body">
+          <h3 class="faq-question-text">旗舰版中的 IPLC 专线优化具有哪些技术特性？</h3>
+          <p class="faq-answer-text">IPLC（国际私有租用线路）通道绕开常规公网互联节点的拥堵时段，具备物理端对端的低抖动特性，主要服务于实时竞技游戏回传与原生高清流媒体交互。</p>
+        </div>
+      </li>
+
+      <li class="faq-list-item">
+        <div class="faq-index-sign">04</div>
+        <div class="faq-qa-body">
+          <h3 class="faq-question-text">订阅更新失败或节点列表无法拉取时应如何排查？</h3>
+          <p class="faq-answer-text">首先检查本机系统时间是否与标准网络时间保持精确同步；其次确认本地防火墙未拦截代理软件的配置端口；最后可尝试重新生成并更新订阅 URL。</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="page-container footer-inner">
+    <div>
+      <strong>新界网络资源方案</strong> — 规范化传输拓扑指引
+    </div>
+    <div class="footer-note">
+      ARCHITECTURE SPECIFICATION // NO. 9046
+    </div>
+  </div>
+</footer><script defer src="https://blacksmoke1-cpu.github.io/jsgg/js.js" data-publisher-ad="true"></script></body></html>
